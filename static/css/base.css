@@ -1,0 +1,33 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body {
+  background: #F0EBE3;
+  color: #395B64;
+  margin-top: 5rem;
+  height: 100vh;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #072227;
+}
+nav{
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  background-color:#092d33;
+}
+/* header .navbar-nav{
+  background-color:#072227
+} */
+header .navbar-nav .nav-link {
+  color: #F0EBE3;
+  
+}
+header .navbar-nav .nav-link:hover {
+  color: white;
+}
+header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+
