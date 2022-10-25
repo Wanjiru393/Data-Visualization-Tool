@@ -3,15 +3,38 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .forms import CreateUserForm,ProductForm
+from .forms import CreateUserForm,ProductForm, OrderForm
 from .models import Product,Order
 
 
 # Create your views here.
 @login_required(login_url='login')
 def index(request):
-    return render(request, 'dashboard/index.html')
+    product = Product.objects.all()
+    product_count = product.count()
+    order = Order.objects.all()
+    order_count = order.count()
+    customer = User.objects.filter(groups=2)
+    customer_count = customer.count()
 
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.customer = request.user
+            obj.save()
+            return redirect('dashboard-index')
+    else:
+        form = OrderForm()
+    context = {
+        'form': form,
+        'order': order,
+        'product': product,
+        'product_count': product_count,
+        'order_count': order_count,
+        'customer_count': customer_count,
+    }
+    return render(request, 'dashboard/index.html', context)
 #Read Product
 @login_required(login_url='login')
 def product(request):

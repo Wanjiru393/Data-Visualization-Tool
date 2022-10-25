@@ -17,9 +17,9 @@
             <tbody>
                 {% for customer in customers %}
                 <tr>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.profile.phone }}</td>
+                    <td>{{ customer.username }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.profile.phone }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
