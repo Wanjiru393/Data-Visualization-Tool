@@ -1,5 +1,5 @@
 ## Data-Visualization-Tool
-A system that analyzes sales and sellers data, available stock and presents it in a user friendly manner using a graph and pie chart.
+A system that analyzes sales and sellers data, available stock and presents it in a charts & a graph.
 
 ## Technologies Used
 - Chart.js
